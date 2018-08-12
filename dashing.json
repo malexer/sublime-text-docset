@@ -4,9 +4,8 @@
     "index": "www.sublimetext.com/docs/3/index.html",
     "selectors": {
         "dt a": "Command",
-        "body.top-level h2": "Section",
         "title": {
-          "type":"Entry",
+          "type":"Guide",
           "regexp": " – Sublime Text 3 Documentation",
           "replacement": ""
         }
