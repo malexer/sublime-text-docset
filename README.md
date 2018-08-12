@@ -31,9 +31,9 @@ Download favicon:
 
 Convert to png:
 
-    $ convert favicon.ico -resize 32x32 favicon.png
-    $ mv favicon-1.png favicon.png
-    $ rm -f favicon-0.png favicon-2.png
+    $ convert favicon.ico -resize 32x32 favicon.png \
+        && mv favicon-1.png favicon.png \
+        && rm -f favicon-0.png favicon-2.png
 
 ## Step 3: build docset
 
