@@ -8,12 +8,13 @@
           "type":"Guide",
           "regexp": " – Sublime Text 3 Documentation",
           "replacement": ""
-        }
+        },
+        "h2": "Section"
     },
     "ignore": [
         "Documentation - Sublime Text"
     ],
     "icon32x32": "favicon.png",
-    "allowJS": false,
+    "allowJS": true,
     "ExternalURL": "https://"
 }
