@@ -19,6 +19,10 @@ Remove website header (not needed for docs):
 
     $ find ./www.sublimetext.com -iname '*.html' | xargs -n1 sed -i '' -e '/<header>/,/<\/header>/d'
 
+Fix title in one page:
+
+    $ sed -i '' -e 's/<title>Distraction Free Mode/<title>Tab Completion/' ./www.sublimetext.com/docs/3/tab_completion.html
+
 ## Step 2: create icon
 
 Download favicon:
