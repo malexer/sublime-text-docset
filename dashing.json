@@ -1,20 +1,59 @@
 {
     "name": "Sublime Text",
     "package": "sublime-text",
-    "index": "www.sublimetext.com/docs/3/index.html",
+    "index": "www.sublimetext.com/docs/index.html",
     "selectors": {
-        "dt a": "Command",
         "title": {
-          "type":"Guide",
-          "regexp": " – Sublime Text 3 Documentation",
-          "replacement": ""
+            "type":"Guide",
+            "regexp": " – Sublime Text(?: Documentation)?",
+            "replacement": ""
         },
-        "h2": "Section"
+        "section.wide > h2": [
+            {
+                "type": "Module",
+                "requiretext": "Module"
+            }
+        ],
+        ":not(section.wide) > h2": {
+            "type": "Section"
+        },
+        "h2 code": {
+            "type": "Class"
+        },
+        "td.mth": [
+            {
+                "type": "Method",
+                "requiretext": "\\("
+            },
+            {
+                "type": "Property",
+                "requiretext": "^[^(]+$"
+            }
+        ],
+        "table.kinds tr td:last-child": "Enum",
+        "dl.enum dt > span.key": {
+            "type": "Property",
+            "regexp": "\"",
+            "replacement": ""
+        },
+        "dt > .data-type": "Type",
+        ".enum > code": "Variable",
+        ".enum > * > code": "Variable",
+        "span.menu": "Statement",
+        "span.command": "Command",
+        ".enum span.setting": "Setting",
+        "li > span.file": "File",
+        ".enum span.file": "File",
+        "h3 span.key": "Method",
+        "h4 > code": {
+            "type": "Value",
+            "regexp": "\\.",
+            "replacement": ""
+        }
     },
     "ignore": [
-        "Documentation - Sublime Text"
     ],
     "icon32x32": "favicon.png",
-    "allowJS": true,
-    "ExternalURL": "https://"
+    "allowJS": false,
+    "ExternalURL": ""
 }
