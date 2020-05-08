@@ -23,7 +23,9 @@
         "td.mth": [
             {
                 "type": "Method",
-                "requiretext": "\\("
+                "requiretext": "\\(",
+                "regexp": "\\(.*\\)",
+                "replacement": "()"
             },
             {
                 "type": "Property",
