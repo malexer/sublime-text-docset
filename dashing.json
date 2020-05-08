@@ -5,7 +5,7 @@
     "selectors": {
         "title": {
             "type":"Guide",
-            "regexp": " – Sublime Text(?: Documentation)?",
+            "regexp": " [–-] Sublime Text(?: Documentation)?",
             "replacement": ""
         },
         "section.wide > h2": [
