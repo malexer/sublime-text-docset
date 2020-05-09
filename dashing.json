@@ -43,7 +43,6 @@
         "tt[id^=type-]": "Type",
         ".enum > code": "Variable",
         ".enum > *:not(pre) > code": "Variable",
-        "span.menu": "Statement",
         "span.command": "Command",
         ".enum span.setting": "Setting",
         "li > span.file, .enum span.file": {
