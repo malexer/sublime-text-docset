@@ -46,8 +46,10 @@
         "span.menu": "Statement",
         "span.command": "Command",
         ".enum span.setting": "Setting",
-        "li > span.file": "File",
-        ".enum span.file": "File",
+        "li > span.file, .enum span.file": {
+            "type": "File",
+            "requiretext": "^[^.]"
+        },
         "h3 span.key": "Method",
         "h4 > code": {
             "type": "Value",
