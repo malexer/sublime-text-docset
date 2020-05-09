@@ -27,7 +27,7 @@
                 "type": "Method",
                 "requiretext": "\\(",
                 "regexp": "\\(.*\\)",
-                "replacement": "()"
+                "replacement": ""
             },
             {
                 "type": "Property",
