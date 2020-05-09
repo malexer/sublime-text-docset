@@ -35,7 +35,7 @@
             }
         ],
         "table.kinds tr td:last-child": "Enum",
-        "dl.enum dt > span.key": {
+        "dl.enum dt > span.key, h3 span.key": {
             "type": "Property",
             "regexp": "\"",
             "replacement": ""
@@ -50,7 +50,6 @@
             "type": "File",
             "requiretext": "^[^.]"
         },
-        "h3 span.key": "Method",
         "h4 > code": {
             "type": "Value",
             "regexp": "\\.",
