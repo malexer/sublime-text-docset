@@ -57,6 +57,8 @@
         }
     },
     "ignore": [
+        "",
+        "(no methods)"
     ],
     "icon32x32": "favicon.png",
     "allowJS": false,
