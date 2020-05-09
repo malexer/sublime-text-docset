@@ -4,7 +4,7 @@
     "index": "www.sublimetext.com/docs/index.html",
     "selectors": {
         "title": {
-            "type":"Guide",
+            "type": "Guide",
             "regexp": " [–-] Sublime Text(?: Documentation)?",
             "replacement": ""
         },
