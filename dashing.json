@@ -15,7 +15,9 @@
             }
         ],
         ":not(section.wide) > h2": {
-            "type": "Section"
+            "type": "Section",
+            "regexp": "\\s*\\d+$",
+            "replacement": ""
         },
         "h2 code": {
             "type": "Class"
