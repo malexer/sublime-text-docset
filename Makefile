@@ -4,7 +4,7 @@ local_index := $(local_path)/docs/index.html
 built_path := ./sublime-text.docset
 
 .PHONY: all
-all: clean download fix-all build
+all: clean download fix-all build fix-build
 
 .PHONY: download
 download:
@@ -40,6 +40,11 @@ fix-css:
 
 build:
 	dashing build
+
+.PHONY: fix-build
+fix-build:
+	find $(built_path) -iname '*.html' -exec \
+		sed -i -Ee 's#(<a [^>]+></a><a [^>]+></a>)(<td class="mth">)#\2\1#g' {} \;
 
 .PHONY: clean
 clean:
