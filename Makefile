@@ -44,7 +44,7 @@ build:
 .PHONY: fix-build
 fix-build:
 	find $(built_path) -iname '*.html' -exec \
-		sed -i -Ee 's#(<a [^>]+></a><a [^>]+></a>)(<td class="mth">)#\2\1#g' {} \;
+		sed -i -Ee 's#(<a [^>]+></a><a [^>]+></a>)(<td[^>]*>)#\2\1#g' {} \;
 
 .PHONY: clean
 clean:
