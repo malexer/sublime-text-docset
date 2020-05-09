@@ -35,6 +35,11 @@
             }
         ],
         "table.kinds tr td:last-child": "Enum",
+        "table.enum tr td:first-child span.key": {
+            "type": "Enum",
+            "regexp": "\"",
+            "replacement": ""
+        },
         "dl.enum dt > span.key, h3 span.key": {
             "type": "Property",
             "regexp": "\"",
