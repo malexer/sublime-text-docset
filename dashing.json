@@ -40,7 +40,7 @@
             "regexp": "\"",
             "replacement": ""
         },
-        "dt > .data-type": "Type",
+        "tt[id^=type-]": "Type",
         ".enum > code": "Variable",
         ".enum > * > code": "Variable",
         "span.menu": "Statement",
