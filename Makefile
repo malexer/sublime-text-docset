@@ -1,10 +1,12 @@
 source_link := https://www.sublimetext.com/docs/index.html
-local_path := ./www.sublimetext.com/
-local_index := $(local_path)docs/index.html
-built_path := ./sublime-text.docset/
+local_path := ./www.sublimetext.com
+local_index := $(local_path)/docs/index.html
+built_path := ./sublime-text.docset
 
-all: clean download fix build
+.PHONY: all
+all: clean download fix-all build
 
+.PHONY: download
 download:
 	-wget \
 		--convert-links \
@@ -20,23 +22,29 @@ download:
 		--output-document=$(local_index) \
 		"$(source_link)"
 
-fix:
-	-rm -r $(local_path)docs/3
-	$(shell for f in $$(ls $(local_path)*.css\?*); do mv "$$f" "$${f%\?*}"; done )
-	sed -i '' -e 's/\(href="\)https:\/\/www.sublimetext.com\/docs\//\1/g' $(local_index)
-	sed -i '' -e 's/\(href="\)https:\/\/www.sublimetext.com\/\(.*\.css\)/\1..\/\2/g' $(local_index)
-	find $(local_path) -iname '*.html' \
-		| xargs -n1 sed -i '' -e '/<header>/,/<\/header>/d'
+.PHONY: fix
+fix: fix-html fix-css
+	-rm -r $(local_path)/docs/3
+	$(shell for f in $$(ls $(local_path)/*.css\?*); do mv "$$f" "$${f%\?*}"; done )
 
+.PHONY: fix-html
+fix-html:
+	sed -i -e 's/\(href="\)https:\/\/www.sublimetext.com\/docs\//\1/g' $(local_index)
+	sed -i -e 's/\(href="\)https:\/\/www.sublimetext.com\/\(.*\.css\)/\1..\/\2/g' $(local_index)
+	find $(local_path) -iname '*.html' -exec sed -i -e '/<header>/,/<\/header>/d' {} \;
+
+.PHONY: fix-css
 fix-css:
-	echo $(shell for f in $$(ls $(local_path)*.css\?*); do echo "$$f : $${f%\?*}"; done )
-	echo $(shell for f in $$(ls $(local_path)*.css\?*); do mv "$$f" "$${f%\?*}"; done )
+	$(shell for f in $$(ls $(local_path)/*.css\?*); do echo "$$f : $${f%\?*}"; done )
+	$(shell for f in $$(ls $(local_path)/*.css\?*); do mv "$$f" "$${f%\?*}"; done )
 
 build:
 	dashing build
 
+.PHONY: clean
 clean:
 	-rm -r $(local_path)
 
-clean-more:
-	-rm -r $(local_path) $(built_path)
+.PHONY: clean-more
+clean-more: clean
+	-rm -r $(built_path)
