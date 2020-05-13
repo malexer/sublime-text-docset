@@ -1,3 +1,5 @@
+*Note: further development and support have moved to:* https://github.com/SublimeText/sublime-text-docset
+
 # Sublime Text Docset
 
 [Dash][]/[Zeal][] docset for [Sublime Text][st]’s official [documentation][st-docs].
