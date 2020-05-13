@@ -1,40 +1,41 @@
-# Overview
+# Sublime Text Docset
 
-Instruction how to build Dash docset for Sublime Text 3 official documentation.
+[Dash][]/[Zeal][] docset for [Sublime Text][st]’s official [documentation][st-docs].
 
-# Requirements
+## Building
 
-* [dashing](https://github.com/technosophos/dashing#readme)
-* [imagemagick](https://www.imagemagick.org)
+## Requirements
 
-# How to generate the docset
+* `make`
+* [`dashing`][dashing]
+* `sed` (with `-E` support), `find`, `wget`
 
-## Step 1: prepare html docs
+## Steps
 
-Download html documentation from Sublime Text website:
+1.
+    ``` sh
+    make
+    ```
 
-    $ wget -k -r -p -np "https://www.sublimetext.com/docs/3/index.html"
+## Installation
 
-Remove website header (not needed for docs):
+### Dash locally-built docset
 
-    $ find ./www.sublimetext.com -iname '*.html' | xargs -n1 sed -i '' -e '/<header>/,/<\/header>/d'
+1. Open Dash.
+1. <kbd>Cmd</kbd>+<kbd>,</kbd>
+1. Open the "Docsets" tab.
+1. Click the <kbd>+</kbd>.
+1. Choose "Add Local Docset".
+1. Select the `sublime-text.docset` in this folder.
+1. Optionally change the keyword.
 
-Fix title in one page:
+### Zeal locally-built docset
 
-    $ sed -i '' -e 's/<title>Distraction Free Mode/<title>Tab Completion/' ./www.sublimetext.com/docs/3/tab_completion.html
+1. Find your docset folder ("Docset storage" in your Preferences)
+1. Copy or symlink `sublime-text.docset` to that folder.
 
-## Step 2: create icon
-
-Download favicon:
-
-    $ wget "https://www.sublimetext.com/favicon.ico"
-
-Convert to png:
-
-    $ convert favicon.ico -resize 32x32 favicon.png \
-        && mv favicon-1.png favicon.png \
-        && rm -f favicon-0.png favicon-2.png
-
-## Step 3: build docset
-
-    $ dashing build
+[Dash]: https://kapeli.com/dash
+[Zeal]: https://zealdocs.org
+[st]: https://www.sublimetext.com/
+[st-docs]: https://www.sublimetext.com/docs/index.html
+[dashing]: https://github.com/technosophos/dashing#readme
