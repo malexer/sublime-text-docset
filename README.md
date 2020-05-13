@@ -4,13 +4,13 @@
 
 ## Building
 
-## Requirements
+### Requirements
 
 * `make`
 * [`dashing`][dashing]
 * `sed` (with `-E` support), `find`, `wget`
 
-## Steps
+### Steps
 
 1.
     ``` sh
